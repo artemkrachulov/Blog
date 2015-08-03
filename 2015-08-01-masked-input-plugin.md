@@ -72,11 +72,11 @@ Defines a type of a mask. A String contains blocks with symbols separated by any
 
 Symbols in the block define certain type of data. The predetermined types:
 
-* ** d ** - Number, decimal number from 0 to 9
-* ** D ** - Any symbol, except decimal number
-* ** W ** - Not an alphabetic symbol
-* ** a ** - Alphabetic symbol, a-Z
-* **. ** - Corresponds to any symbol (by default)
+* **d** - Number, decimal number from 0 to 9
+* **D** - Any symbol, except decimal number
+* **W** - Not an alphabetic symbol
+* **a** - Alphabetic symbol, a-Z
+* **.** - Corresponds to any symbol (by default)
 
 Example:
 
@@ -144,7 +144,7 @@ ABCD-EFGH-IJKL-MNOP
 
 Вefine will a user see a template if the field doesn't contain the entered character and has the status the "Clear" field. Can have 2 states:
 
-* **On (true)*** - The template is visible always. Replaces field placeholder.
+* **On (true)** - The template is visible always. Replaces field placeholder.
 * **Off (false)** - The template is displayed if the field contains the entered symbols. If the field has no the symbols entered by the user, standard placeholder of a field will be displayed.
 
 ### Block brackets
@@ -209,7 +209,7 @@ print("A character position in a mask: \(char.range)") // Range<Int>
 
 **Access**: get
 
-**Default value**: `.Clear` - чистое
+**Default value**: `.Clear` - Empty
 
 Define a condition of a field at the moment. The field has 3 states:
 
