@@ -219,7 +219,7 @@ Define an event which the user carries out with the field. Optional methods. Met
 * **maskFieldDidBeginEditing(maskField: AKMaskField)**<br>
   Called when the cursor is placed in the field
 
-* **maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String, InRange range: NSRange, replacementString withString: String)**<br>
+* **maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String, inRange range: NSRange, replacementString withString: String)**<br>
   Called when the user make any event
 
 Example:
@@ -236,7 +236,7 @@ func maskFieldDidBeginEditing(maskField: AKMaskField) {
     print("Объект класса: \(maskField)")
 }
 
-func maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String, InRange range: NSRange, replacementString withString: String) {
+func maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String, inRange range: NSRange, replacementString withString: String) {
     print("Mask object: \(maskField)")
     print("The text before an event: \(maskField.oldString)")
     print("Range of text before event: \(maskField.range)")

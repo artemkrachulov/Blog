@@ -219,7 +219,7 @@ print("Месторасположение символa в маске: \(char.ra
 
   Вызывается когда курсор установлен в поле
 
-* maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String, InRange range: NSRange, replacementString withString: String)
+* maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String, inRange range: NSRange, replacementString withString: String)
 
   Вызывается когда пользователь выполняет действие
 
@@ -237,7 +237,7 @@ func maskFieldDidBeginEditing(maskField: AKMaskField) {
     print("Объект класса: \(maskField)")
 }
 
-func maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String, InRange range: NSRange, replacementString withString: String) {
+func maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String, inRange range: NSRange, replacementString withString: String) {
     print("Объект класса: \(maskField)")
     print("Текст до события: \(maskField.oldString)")
     print("Месторасположение текста до события: \(maskField.range)")
