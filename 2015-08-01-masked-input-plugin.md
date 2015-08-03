@@ -1,7 +1,6 @@
 When I developed some applications, I faced with a masked input problem. I needed input field which use a mask (credit cards, telephone numbers, etc.). It would seem, it is possible to use usual regular expression, but I wanted a little bit bigger number of settings. I began to look for the suitable plugin or extension written on the Swift language, but I didn't find that. Even searches of a plugin in the previous Objective-C language have ended without any result. Then I thought why not to write this plugin, small but universal plugin.
 
 <div class="push align_center"><a class="btn bg_dark btn_large" href="https://github.com/artemkrachulov/AKMaskField" target="_blank"><span>View Plugin on Github</span></a></div>
-
 ## What is AKMaskField?
 
 AKMaskField is Swift plugin.
@@ -26,39 +25,39 @@ AKMaskField allows the user to enter easily data in the fixed quantity and in ce
 
 Add the _AKMaskField.swift_ file to the project (To copy the file it has to be chosen). Create a field of the class _UITextField_ and specify to it the class _AKMaskField_ in the Inspector / Accessory Panel. Attributes or in a code specify necessary attributes in a tab:
 
-**Attributes tab**
+### Attributes tab
 
-```text
-Mask: {dddd}-{dddd}-{dddd}-{dddd}
-Mask Template: xxxx-xxxx-xxxx-xxxx
-Mask Show Template: On
+**Mask**: {dddd}-{dddd}-{dddd}-{dddd}<br>
+**Mask Template**: xxxx-xxxx-xxxx-xxxx<br>
+**Mask Show Template**: On
 
-// Input field
-xxxx-xxxx-xxxx-xxxx
+Input field<br>
+**xxxx-xxxx-xxxx-xxxx**
 
-// Default text attributes settings
-Text: 0123
+Default text attributes settings.<br>
+**Text**: 0123
 
-// Input field
-0123-xxxx-xxxx-xxxx
-```
+Input field<br>
+**0123-xxxx-xxxx-xxxx**
 
-**The code**
+### The code
 
-```text
+```swift
 field.mask = "{dddd}-{dddd}-{dddd}-{dddd}"
 field.maskTemplate = "xxxx-xxxx-xxxx-xxxx"
 field.maskShowTemplate = true
+```
 
-// Input field
-xxxx-xxxx-xxxx-xxxx
+Input field<br>
+**xxxx-xxxx-xxxx-xxxx**
 
+```swift
 // Default text attributes settings
 field.text = 0123
-
-// Input field
-0123-xxxx-xxxx-xxxx
 ```
+
+Input field<br>
+**0123-xxxx-xxxx-xxxx**
 
 ## Properties
 
@@ -66,11 +65,8 @@ field.text = 0123
 
 `.mask` property / _mask_ key path / **Mask** attribute
 
-**Type**: String
-
-**Access**: get set
-
-**Default value**: __*__
+**Type**: String<br>
+**Access**: get set<br>
 
 Defines a type of a mask. A String contains blocks with symbols separated by any string out of blocks. Open and close each block a special symbol.
 
@@ -82,68 +78,50 @@ Symbols in the block define certain type of data. The predetermined types:
 * **a** - Alphabetic symbol, a-Z
 * **.** - Corresponds to any symbol (by default)
 
-Example:
+Example:<br>
+**{dddd}-{DDDD}-{WaWa}-{aaaa}**
 
-```text
-{dddd}-{DDDD}-{WaWa}-{aaaa}
-```
 
 ### Template
 
 `.maskTemplate` property / _maskTemplate_ key path / **Mask Template** attribute
 
-**Type**: String
-
-**Access**: get set
-
-**Default value**: __*__
+**Type**: String<br>
+**Access**: get set<br>
+**Default value**: *
 
 Text template with the hidden symbols of a mask which is seen by the user. Can be in a look:
 
-* **1 character**
-
+* **1 character** <br>
   In this case the symbol will be copied in compliance of length of each block of a mask.
 
 Example:
 
-```text
-// Mask
-{dddd}-{DDDD}-{WaWa}-{aaaa}
+**Mask**: {dddd}-{DDDD}-{WaWa}-{aaaa}
+**Template**: Z
 
-// Template
-Z
+Input field<br>
+**ZZZZ-ZZZZ-ZZZZ-ZZZZ**
 
-// Input field
-ZZZZ-ZZZZ-ZZZZ-ZZZZ
-```
-
-* **Any characters**
-
+* **Any characters** <br>
   In this case the quantity of characters of a template has to be equal to quantity of characters of a mask without brackets.
 
 Example:
 
-```text
-// Mask
-// 19 characters
-{dddd}-{DDDD}-{WaWa}-{aaaa}
+**Mask**: {dddd}-{DDDD}-{WaWa}-{aaaa}<br>
+**Template**: ABCD-EFGH-IJKL-MNOP
 
-// Template
-// 19 characters
-ABCD-EFGH-IJKL-MNOP
+19 characters = 19 characters
 
-// Input field
-ABCD-EFGH-IJKL-MNOP
-```
+Input field<br>
+**ABCD-EFGH-IJKL-MNOP**
 
 ### Visible mask tempalte
 
 `.maskShowTemplate` property / _maskShowTemplate_ key path / **Mask Show Template** attribute
 
-**Type**: Bool
-
-**Access**: get set
-
+**Type**: Bool<br>
+**Access**: get set<br>
 **Default value**: false (Default value)
 
 Вefine will a user see a template if the field doesn't contain the entered character and has the status the "Clear" field. Can have 2 states:
@@ -155,10 +133,8 @@ ABCD-EFGH-IJKL-MNOP
 
 `.maskBlockBrackets` property
 
-**Type**: Array
-
-**Access**: get set
-
+**Type**: Array<br>
+**Access**: get set<br>
 **Default value**: `{` and `}`
 
 Two characters (open and close) that can be changed in the code.
@@ -177,10 +153,8 @@ field.mask = [dddd]-[DDDD]-[WaWa]-[aaaa]
 
 `.maskObject` property
 
-**Type**: Array
-
-**Access**: get
-
+**Type**: Array<br>
+**Access**: get<br>
 **Default value**: Empty attay
 
 Contain all information about mask blocks.
@@ -209,10 +183,8 @@ print("A character position in a mask: \(char.range)") // Range<Int>
 
 `.maskStatus` property
 
-**Type**: Enum
-
-**Access**: get
-
+**Type**: Enum<br>
+**Access**: get<br>
 **Default value**: `.Clear` - Empty
 
 Define a condition of a field at the moment. The field has 3 states:
@@ -225,10 +197,8 @@ Define a condition of a field at the moment. The field has 3 states:
 
 `.maskEvent` property
 
-**Type**: Enum
-
-**Access**: get
-
+**Type**: Enum<br>
+**Access**: get<br>
 **Default value**: `.None`
 
 Define a user events. The user can make 4 events:
@@ -244,12 +214,10 @@ Define a user events. The user can make 4 events:
 
 Define an event which the user carries out with the field. Optional methods. Methods:
 
-* maskFieldDidBeginEditing(maskField: AKMaskField)
-
+* **maskFieldDidBeginEditing(maskField: AKMaskField)**<br>
   Called when the cursor is placed in the field
 
-* maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String, InRange range: NSRange, replacementString withString: String)
-
+* **maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String, InRange range: NSRange, replacementString withString: String)**<br>
   Called when the user make any event
 
 Example:
