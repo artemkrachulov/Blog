@@ -24,7 +24,7 @@ AKMaskField позволяет пользователю легко ввести 
 
 **Вкладка Атрибуты**
 
-``` text
+``` swift
 Mask: {dddd}-{dddd}-{dddd}-{dddd}
 Mask Template: xxxx-xxxx-xxxx-xxxx
 Mask Show Template: On
@@ -35,7 +35,7 @@ Text: 0123456789011234
 
 **Код**
 
-``` text
+``` swift
 field.mask = "{dddd}-{dddd}-{dddd}-{dddd}"
 field.maskTemplate = "xxxx-xxxx-xxxx-xxxx"
 field.maskShowTemplate = true
@@ -50,14 +50,9 @@ field.text = 0123456789011234
 
 `.mask` свойства / _mask_ ключ / **Mask** атрибут
 
-<<<<<<< HEAD
 **Тип**: Строка
 
 **Доступ**: Можно изменять и обращаться
-=======
-Тип: Строка
-Доступ: Можно изменять и обращаться
->>>>>>> e81e56f9bf587f761e97fb8595a8add65bb641a4
 
 Определяет вид маски. Строка содержит блоки с символами резделенными любой строкой вне блоков. Блоки открывает и закрывает специальный символ. По умолчанию  `{` ... `}`.
 
@@ -71,7 +66,7 @@ field.text = 0123456789011234
 
 Пример:
 
-``` text
+``` swift
 {dddd}-{DDDD}-{WaWa}-{aaaa}
 ```
 
@@ -92,7 +87,7 @@ field.text = 0123456789011234
 
 Пример:
 
-``` text
+``` swift
 // Маска
 {dddd}-{DDDD}-{WaWa}-{aaaa}
 
@@ -108,7 +103,7 @@ ZZZZ-ZZZZ-ZZZZ-ZZZZ
 
 Пример:
 
-``` text
+``` swift
 // Маска
 // 19 символов
 {dddd}-{DDDD}-{WaWa}-{aaaa}
@@ -150,7 +145,7 @@ ABCD-EFGH-IJKL-MNOP
 
 Пример:
 
-``` text
+``` swift
 // Скобки
 .maskBlockBrackets = ["[", "]"]
 
@@ -172,7 +167,7 @@ ABCD-EFGH-IJKL-MNOP
 
 Пример:
 
-``` text
+``` swift
 // Возьмём первый блок
 let block = self.field.maskObject[0]
 
@@ -237,7 +232,7 @@ print("Месторасположение символa в маске: \(char.ra
 
 Пример:
 
-``` text
+``` swift
 override func viewDidLoad() {
   super.viewDidLoad()
 
