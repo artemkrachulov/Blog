@@ -1,6 +1,6 @@
 When I developed some applications, I faced with a masked input problem. I needed input field which use a mask (credit cards, telephone numbers, etc.). It would seem, it is possible to use usual regular expression, but I wanted a little bit bigger number of settings. I began to look for the suitable plugin or extension written on the Swift language, but I didn't find that. Even searches of a plugin in the previous Objective-C language have ended without any result. Then I thought why not to write this plugin, small but universal plugin.
 
-<div class="push"><div class="align_center"><a class="btn bg_dark btn_large" href="https://github.com/artemkrachulov/AKMaskField" target="_blank"><span>View Plugin on Github</span></a></div></div>
+<div class="push align_center"><a class="btn bg_dark btn_large" href="https://github.com/artemkrachulov/AKMaskField" target="_blank"><span>View Plugin on Github</span></a></div>
 
 ## What is AKMaskField?
 
@@ -18,7 +18,9 @@ AKMaskField allows the user to enter easily data in the fixed quantity and in ce
 * fast processing of a input field
 * smart user input actions: to copy / insert
 
-<div class="align_center thumbnail thumbnail-shadow"><p class="thumbnail-title">Preview</p><br><img src="https://raw.githubusercontent.com/artemkrachulov/AKMaskField/master/Assets/preview.png" alt="Demo"></div>
+**Preview**
+
+![Demp](https://raw.githubusercontent.com/artemkrachulov/AKMaskField/master/Assets/preview.png)
 
 ## Usage
 
