@@ -1,6 +1,7 @@
 When I developed some applications, I faced with a masked input problem. I needed input field which use a mask (credit cards, telephone numbers, etc.). It would seem, it is possible to use usual regular expression, but I wanted a little bit bigger number of settings. I began to look for the suitable plugin or extension written on the Swift language, but I didn't find that. Even searches of a plugin in the previous Objective-C language have ended without any result. Then I thought why not to write this plugin, small but universal plugin.
 
 <div class="push align_center"><a class="btn bg_dark btn_large" href="https://github.com/artemkrachulov/AKMaskField" target="_blank"><span>View Plugin on Github</span></a></div>
+
 ## What is AKMaskField?
 
 AKMaskField is Swift plugin.
@@ -81,7 +82,6 @@ Symbols in the block define certain type of data. The predetermined types:
 Example:<br>
 **{dddd}-{DDDD}-{WaWa}-{aaaa}**
 
-
 ### Template
 
 `.maskTemplate` property / _maskTemplate_ key path / **Mask Template** attribute
@@ -95,26 +95,26 @@ Text template with the hidden symbols of a mask which is seen by the user. Can b
 * **1 character** <br>
   In this case the symbol will be copied in compliance of length of each block of a mask.
 
-Example:
+  Example:
 
-**Mask**: {dddd}-{DDDD}-{WaWa}-{aaaa}
-**Template**: Z
+  **Mask**: {dddd}-{DDDD}-{WaWa}-{aaaa}<br>
+  **Template**: Z
 
-Input field<br>
-**ZZZZ-ZZZZ-ZZZZ-ZZZZ**
+  Input field<br>
+  **ZZZZ-ZZZZ-ZZZZ-ZZZZ**
 
 * **Any characters** <br>
   In this case the quantity of characters of a template has to be equal to quantity of characters of a mask without brackets.
 
-Example:
+  Example:
 
-**Mask**: {dddd}-{DDDD}-{WaWa}-{aaaa}<br>
-**Template**: ABCD-EFGH-IJKL-MNOP
+  **Mask**: {dddd}-{DDDD}-{WaWa}-{aaaa}<br>
+  **Template**: ABCD-EFGH-IJKL-MNOP
 
-19 characters = 19 characters
+  19 characters = 19 characters
 
-Input field<br>
-**ABCD-EFGH-IJKL-MNOP**
+  Input field<br>
+  **ABCD-EFGH-IJKL-MNOP**
 
 ### Visible mask tempalte
 
@@ -126,8 +126,10 @@ Input field<br>
 
 Вefine will a user see a template if the field doesn't contain the entered character and has the status the "Clear" field. Can have 2 states:
 
-* **On (true)** - The template is visible always. Replaces field placeholder.
-* **Off (false)** - The template is displayed if the field contains the entered symbols. If the field has no the symbols entered by the user, standard placeholder of a field will be displayed.
+* **On (true)**<br>
+  The template is visible always. Replaces field placeholder.
+* **Off (false)**<br>
+  The template is displayed if the field contains the entered symbols. If the field has no the symbols entered by the user, standard placeholder of a field will be displayed.
 
 ### Block brackets
 
