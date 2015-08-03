@@ -183,7 +183,7 @@ Contain all information about mask blocks.
 
 Example:
 
-``` swift
+```swift
 // Get first block
 let block = self.field.maskObject[0]
 
