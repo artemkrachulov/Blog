@@ -24,7 +24,7 @@ Add the _AKMaskField.swift_ file to the project (To copy the file it has to be c
 
 **Attributes tab**
 
-``` text
+```text
 Mask: {dddd}-{dddd}-{dddd}-{dddd}
 Mask Template: xxxx-xxxx-xxxx-xxxx
 Mask Show Template: On
@@ -41,7 +41,7 @@ Text: 0123
 
 **The code**
 
-``` text
+```text
 field.mask = "{dddd}-{dddd}-{dddd}-{dddd}"
 field.maskTemplate = "xxxx-xxxx-xxxx-xxxx"
 field.maskShowTemplate = true
@@ -80,7 +80,7 @@ Symbols in the block define certain type of data. The predetermined types:
 
 Example:
 
-``` text
+```text
 {dddd}-{DDDD}-{WaWa}-{aaaa}
 ```
 
@@ -102,7 +102,7 @@ Text template with the hidden symbols of a mask which is seen by the user. Can b
 
 Example:
 
-``` text
+```text
 // Mask
 {dddd}-{DDDD}-{WaWa}-{aaaa}
 
@@ -119,7 +119,7 @@ ZZZZ-ZZZZ-ZZZZ-ZZZZ
 
 Example:
 
-``` text
+```text
 // Mask
 // 19 characters
 {dddd}-{DDDD}-{WaWa}-{aaaa}
@@ -161,7 +161,7 @@ Two characters (open and close) that can be changed in the code.
 
 Example:
 
-``` swift
+```swift
 // Brackets
 field.maskBlockBrackets = ["[", "]"]
 
@@ -250,7 +250,7 @@ Define an event which the user carries out with the field. Optional methods. Met
 
 Example:
 
-``` swift
+```swift
 override func viewDidLoad() {
   super.viewDidLoad()
 
