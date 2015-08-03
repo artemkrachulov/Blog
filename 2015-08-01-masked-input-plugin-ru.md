@@ -24,7 +24,7 @@ AKMaskField позволяет пользователю легко ввести 
 
 **Вкладка Атрибуты**
 
-``` swift
+``` text
 Mask: {dddd}-{dddd}-{dddd}-{dddd}
 Mask Template: xxxx-xxxx-xxxx-xxxx
 Mask Show Template: On
@@ -66,7 +66,7 @@ field.text = 0123456789011234
 
 Пример:
 
-``` swift
+``` text
 {dddd}-{DDDD}-{WaWa}-{aaaa}
 ```
 
@@ -87,7 +87,7 @@ field.text = 0123456789011234
 
 Пример:
 
-``` swift
+``` text
 // Маска
 {dddd}-{DDDD}-{WaWa}-{aaaa}
 
@@ -103,7 +103,7 @@ ZZZZ-ZZZZ-ZZZZ-ZZZZ
 
 Пример:
 
-``` swift
+``` text
 // Маска
 // 19 символов
 {dddd}-{DDDD}-{WaWa}-{aaaa}
@@ -147,10 +147,10 @@ ABCD-EFGH-IJKL-MNOP
 
 ``` swift
 // Скобки
-.maskBlockBrackets = ["[", "]"]
+field.maskBlockBrackets = ["[", "]"]
 
 // Маска
-.mask = [dddd]-[DDDD]-[WaWa]-[aaaa]
+field.mask = [dddd]-[DDDD]-[WaWa]-[aaaa]
 ```
 
 ### Объект
