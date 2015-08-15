@@ -43,15 +43,13 @@
 Это конечно не секрет, но пожалуй самый важный пункт этого списка и я хочу сделать на нем акцент. Помимо профильной литературы, с которой вполне вероятно, вы будете черпать информацию по своему направлению программирования (я допустим не читал профильные книги, а смотрел обучающее видео). Вы просто обязаны, повторюсь "обязаны" прочитать минимальных набор книг, написанных мудрыми программистами для программистов. Знания которые вы получите из этих книг, стразу же будут вас выделять или огромной массы существующих программистов. Вы найдете ответы на многие вопросы, которые вы еще не успели себе задать. Но со временем вы сними столкнетесь. Вот так самый минимальный набор книг:
 
 
-<table>
-    <tr>
-        <td>A</td>
-        <td>B</td>
-    </tr>
-</table>
+<div class="row">
+    <div class="col-sm-6"><img src="http://www.artemkrachulov.com/wp-content/uploads/2015/08/design-patterns-elements-of-reusable-object-oriented-software-ru.jpg" alt="Приемы объектно-ориентированного проектирования" style="max-width:100%;"></div>
+    <div class="col-sm-6"><img src="http://www.artemkrachulov.com/wp-content/uploads/2015/08/refactoring-improving-the-design-of-existing-code-ru.jpg" alt="Рефакторинг. Улучшение существующего кода" style="max-width:100%;"></div>
+</div>
 
-![Приемы объектно-ориентированного проектирования](http://www.artemkrachulov.com/wp-content/uploads/2015/08/design-patterns-elements-of-reusable-object-oriented-software-ru.jpg)
-![Рефакторинг. Улучшение существующего кода](http://www.artemkrachulov.com/wp-content/uploads/2015/08/refactoring-improving-the-design-of-existing-code-ru.jpg)
+
+
 ![Паттерны проектирования](http://www.artemkrachulov.com/wp-content/uploads/2015/08/head-first-design-patterns-ru.jpg)
 ![Совершенный код](http://www.artemkrachulov.com/wp-content/uploads/2015/08/code-complete-ru.jpg)
 
