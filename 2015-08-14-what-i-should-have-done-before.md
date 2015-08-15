@@ -42,16 +42,11 @@
 
 Это конечно не секрет, но пожалуй самый важный пункт этого списка и я хочу сделать на нем акцент. Помимо профильной литературы, с которой вполне вероятно, вы будете черпать информацию по своему направлению программирования (я допустим не читал профильные книги, а смотрел обучающее видео). Вы просто обязаны, повторюсь "обязаны" прочитать минимальных набор книг, написанных мудрыми программистами для программистов. Знания которые вы получите из этих книг, стразу же будут вас выделять или огромной массы существующих программистов. Вы найдете ответы на многие вопросы, которые вы еще не успели себе задать. Но со временем вы сними столкнетесь. Вот так самый минимальный набор книг:
 
-<table>
-    <tr>
-        <td>![Приемы объектно-ориентированного проектирования](http://www.artemkrachulov.com/wp-content/uploads/2015/08/design-patterns-elements-of-reusable-object-oriented-software-ru.jpg)</td>
-        <td>![Рефакторинг. Улучшение существующего кода](http://www.artemkrachulov.com/wp-content/uploads/2015/08/refactoring-improving-the-design-of-existing-code-ru.jpg)</td>
-    </tr>
-    <tr>
-        <td>![Паттерны проектирования](http://www.artemkrachulov.com/wp-content/uploads/2015/08/head-first-design-patterns-ru.jpg)</td>
-        <td>![Совершенный код](http://www.artemkrachulov.com/wp-content/uploads/2015/08/code-complete-ru.jpg)</td>
-    </tr>
-</table>
+![Приемы объектно-ориентированного проектирования](http://www.artemkrachulov.com/wp-content/uploads/2015/08/design-patterns-elements-of-reusable-object-oriented-software-ru.jpg)
+![Рефакторинг. Улучшение существующего кода](http://www.artemkrachulov.com/wp-content/uploads/2015/08/refactoring-improving-the-design-of-existing-code-ru.jpg)
+![Паттерны проектирования](http://www.artemkrachulov.com/wp-content/uploads/2015/08/head-first-design-patterns-ru.jpg)
+![Совершенный код](http://www.artemkrachulov.com/wp-content/uploads/2015/08/code-complete-ru.jpg)
+
 
 Вполне вероятно, что вы не усвоите всей информации прочитав книги только раз, поэтому я советую перечитывать время от времени эти книги и добавлять новые. Не пожалейте потраченного времени и вы получите бесценные знания.
 
