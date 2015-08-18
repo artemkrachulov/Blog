@@ -1,3 +1,12 @@
+---
+title: AKMaskField
+subtitle: Swift plugin
+author: Artem Krachulov
+category: Development, Plugins, Swift
+tags: iOS, Swift, UILabel, UITextField
+excerpt: "AKMaskField allows the user to enter easily data in the fixed quantity and in certain format (credit cards, telephone numbers, dates, etc.). The developer needs to adjust a format of a mask and a template. The mask consists of symbols and blocks. Each block consists of symbols of a certain type (number, letter, symbol). The template in turn represents a mask with hidden symbols in each block."
+---
+
 When I developed some applications, I faced with a masked input problem. I needed input field which use a mask (credit cards, telephone numbers, etc.). It would seem, it is possible to use usual regular expression, but I wanted a little bit bigger number of settings. I began to look for the suitable plugin or extension written on the Swift language, but I didn't find that. Even searches of a plugin in the previous Objective-C language have ended without any result. Then I thought why not to write this plugin, small but universal plugin.
 
 <div class="push align_center"><a class="btn bg_dark btn_large" href="https://github.com/artemkrachulov/AKMaskField" target="_blank"><span>View Plugin on Github</span></a></div>
