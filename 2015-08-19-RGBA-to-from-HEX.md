@@ -7,7 +7,7 @@ tags: HEX, RGBA, Swift, UIColor, iOS
 excerpt: "UIcolor extensions. 'toHex' method represent RGBA color as HEX string value. 'fromHex' method initialises UIColor class with standard HEX string value."
 ---
 
-UIcolor extensions. "toHex" method represent RGBA color as HEX string value. "fromHex" method initialises UIColor class with standard HEX string value.
+UIcolor extensions.
 
 ##  RGBA to HEX
 
