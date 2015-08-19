@@ -255,11 +255,3 @@ func maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String,
     print("Действие в момент события: \(maskField.maskEvent)")
 }
 ```
-
-### Автор
-
-Артем Крачулов: [Вебсайт](http://www.artemkrachulov.com/), [artem.krachulov@gmail.com](artem.krachulov@gmail.com)
-
-### Лицензия
-
-[MIT license](http://www.opensource.org/licenses/MIT)
