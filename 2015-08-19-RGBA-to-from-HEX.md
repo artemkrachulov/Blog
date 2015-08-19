@@ -9,6 +9,10 @@ excerpt: "UIcolor extensions. 'toHex' method represent RGBA color as HEX string 
 
 UIcolor extensions. "toHex" method represent RGBA color as HEX string value. "fromHex" method initialises UIColor class with standard HEX string value.
 
+##  RGBA to HEX
+
+'func toHex() -> String' method represent RGBA color as HEX string value.
+
 ```swift
 /// Convert RGBA value to HEX
 ///
@@ -33,7 +37,13 @@ func toHex() -> String {
     }
     return hex
 }
+```
 
+##  HEX to RGBA
+
+'func fromHex(hex: String) -> UIColor!' ethod initialises UIColor class with standard HEX string value.
+
+```swift
 /// Convert HEX value to RGBA
 ///
 /// Supported single and multiple HEX character. Supported lowercase and uppercase HEX characters
@@ -46,7 +56,7 @@ func toHex() -> String {
 ///  var rgba = UIColor().fromHex(hex: "#FC93") // UIColor(red: 1.0, green: 0.8, blue: 0.6, alpha: 0.2)
 ///  var rgba = UIColor().fromHex(hex: "#FFCC9933") // UIColor(red: 1.0, green: 0.8, blue: 0.6, alpha: 0.2)
 
-func fromHex(#hex: String) -> UIColor! {
+func fromHex(hex: String) -> UIColor! {
 
     let hex = hex.lowercaseString
     let hexCharSet = NSCharacterSet(charactersInString: "#0123456789abcdef")
