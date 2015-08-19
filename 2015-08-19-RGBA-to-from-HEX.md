@@ -11,7 +11,7 @@ UIcolor extensions. "toHex" method represent RGBA color as HEX string value. "fr
 
 ##  RGBA to HEX
 
-'func toHex() -> String' method represent RGBA color as HEX string value.
+`func toHex() -> String` method represent RGBA color as HEX string value.
 
 ```swift
 /// Convert RGBA value to HEX
@@ -41,7 +41,7 @@ func toHex() -> String {
 
 ##  HEX to RGBA
 
-'func fromHex(hex: String) -> UIColor!' ethod initialises UIColor class with standard HEX string value.
+`func fromHex(hex: String) -> UIColor!` method initialises UIColor class with standard HEX string value.
 
 ```swift
 /// Convert HEX value to RGBA
