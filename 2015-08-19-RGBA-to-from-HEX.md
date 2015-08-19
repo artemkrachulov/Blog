@@ -111,3 +111,5 @@ func fromHex(#hex: String) -> UIColor! {
     return nil
 }
 ```
+
+Other useful extensions you can find on my [Extensions](https://github.com/artemkrachulov/SwiftExtensions) repository.
