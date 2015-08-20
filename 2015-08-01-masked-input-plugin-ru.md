@@ -255,3 +255,27 @@ func maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String,
     print("Действие в момент события: \(maskField.maskEvent)")
 }
 ```
+
+## Советы
+
+### Как получить введенный текст без маски
+
+```swift
+var enteredText: String = ""
+for block in card.maskObject {
+
+    for char in block.chars {
+        if char.status { enteredText += String(char.text) }
+    }
+}
+
+println("Введенный текст: \(enteredText)")
+```
+
+### Author
+
+Artem Krachulov: [website](http://www.artemkrachulov.com/), [artem.krachulov@gmail.com](artem.krachulov@gmail.com)
+
+### License
+
+Released under the [MIT license](http://www.opensource.org/licenses/MIT)

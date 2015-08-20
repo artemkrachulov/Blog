@@ -180,13 +180,16 @@ print("Block index in the mask \(block.index)") // Int
 print("The block is filled or isn't filled: \(block.status)") // true - filled, false - isn't filled
 print("The block position in a mask: \(block.range)") // Range<Int>
 print("Block mask: \(block.mask)") // String
+print("Block text: \(block.text)") // String
 print("Block template: \(block.template)") // String
 print("A characters inside the block: \(block.chars)") // Array<AKMaskFieldBlockChars>
 
 // Get first character
 let char = block.chars[0]
 
+print("A character index in a block: \(char.index)") // Int
 print("A character is filled or isn't filled : \(char.status)") // true - filled, false - isn't filled
+print("A Character text: \(char.text)") // String
 print("A character position in a mask: \(char.range)") // Range<Int>
 ```
 
@@ -255,10 +258,18 @@ func maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String,
 }
 ```
 
-### Author
+## Tips
 
-Artem Krachulov: [website](http://www.artemkrachulov.com/), [artem.krachulov@gmail.com](artem.krachulov@gmail.com)
+### How get entered text without mask
 
-### License
+```swift
+var enteredText: String = ""
+for block in card.maskObject {
 
-Released under the [MIT license](http://www.opensource.org/licenses/MIT)
+    for char in block.chars {
+        if char.status { enteredText += String(char.text) }
+    }
+}
+
+println("Entered text: \(enteredText)")
+```
