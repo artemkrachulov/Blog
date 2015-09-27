@@ -7,256 +7,291 @@ tags: iOS, Swift, UILabel, UITextField
 excerpt: "AKMaskField allows the user to enter easily data in the fixed quantity and in certain format (credit cards, telephone numbers, dates, etc.). The developer needs to adjust a format of a mask and a template. The mask consists of symbols and blocks. Each block consists of symbols of a certain type (number, letter, symbol). The template in turn represents a mask with hidden symbols in each block."
 ---
 
-When I developed some applications, I faced with a masked input problem. I needed input field which use a mask (credit cards, telephone numbers, etc.). It would seem, it is possible to use usual regular expression, but I wanted a little bit bigger number of settings. I began to look for the suitable plugin or extension written on the Swift language, but I didn't find that. Even searches of a plugin in the previous Objective-C language have ended without any result. Then I thought why not to write this plugin, small but universal plugin.
+<div class="align_center"><a class="btn bg_dark btn_clean btn_large" href="https://github.com/artemkrachulov/AKMaskField" target="_blank">
+<span>View Plugin on Github</span>
+<i class="icon-github-circled"></i>
+</a></div>
 
-<div class="push align_center"><a class="btn bg_dark btn_large" href="https://github.com/artemkrachulov/AKMaskField" target="_blank"><span>View Plugin on Github</span></a></div>
+---
 
-## What is AKMaskField?
+AKMaskField allows the user to enter easily data in the fixed quantity and in the certain format (credit cards, telephone numbers, dates, etc.). The developer need to set a mask and template string. The mask contain blocks and other characters. Each block contain of symbols of a certain type (number, letter, symbol). The template represents the mask with replacing format symbol with template characters.
 
-AKMaskField is Swift plugin.
+**Features:**
 
-AKMaskField allows the user to enter easily data in the fixed quantity and in certain format (credit cards, telephone numbers, dates, etc.). The developer needs to adjust a format of a mask and a template. The mask consists of symbols and blocks. Each block consists of symbols of a certain type (number, letter, symbol). The template in turn represents a mask with hidden symbols in each block.
-
-**Main features:**
-
-* easy in use
-* possibility to setup input field from a code or Settings Panel
-* smart template
-* the status and action callbacks
-* support of dynamic change of a mask
-* fast processing of a input field
-* smart user input actions: to copy / insert
-
-**Preview**
-
-![Demp](https://raw.githubusercontent.com/artemkrachulov/AKMaskField/master/Assets/preview.png)
+* Easy in use
+* Possibility to setup input field from a code or Settings Panel
+* Smart template
+* Support of dynamic change of a mask
+* Fast processing of a input field
+* Smart copy / insert action
 
 ## Usage
 
-Add the _AKMaskField.swift_ file to the project (To copy the file it has to be chosen). Create a field of the class _UITextField_ and specify to it the class _AKMaskField_ in the Inspector / Accessory Panel. Attributes or in a code specify necessary attributes in a tab:
+Add the _AKMaskField_ folder to your project (To copy the file it has to be chosen).
 
-### Attributes tab
+### Storyboard
 
-**Mask**: {dddd}-{dddd}-{dddd}-{dddd}<br>
-**Mask Template**: xxxx-xxxx-xxxx-xxxx<br>
-**Mask Show Template**: On
+Create a text field `UITextField` and set a class `AKMaskField` in the Inspector / Accessory Panel tab. Specify necessary attributes in the Inspector / Accessory Attributes tab:
 
-Input field<br>
-**xxxx-xxxx-xxxx-xxxx**
+**Mask**: {dddd}-{DDDD}-{WaWa}-{aaaa}<br>
+**Mask Template**: ABCD-EFGH-IJKL-MNOP<br>
+**Mask Show Template**: On<br>
 
-Default text attributes settings.<br>
-**Text**: 0123
-
-Input field<br>
-**0123-xxxx-xxxx-xxxx**
-
-### The code
+Drag field to view controller class. Create outlet.
 
 ```swift
-field.mask = "{dddd}-{dddd}-{dddd}-{dddd}"
-field.maskTemplate = "xxxx-xxxx-xxxx-xxxx"
-field.maskShowTemplate = true
+@IBOutlet weak var field: AKMaskField!
 ```
 
-Input field<br>
-**xxxx-xxxx-xxxx-xxxx**
+### Programmatically
 
 ```swift
-// Default text attributes settings
-field.text = 0123
+var field: AKMaskField!
+
+override func viewDidLoad() {
+    super.viewDidLoad()
+
+    field = AKMaskField()
+    field.mask = "{dddd}-{DDDD}-{WaWa}-{aaaa}"
+    field.maskTemplate = "ABCD-EFGH-IJKL-MNOP"
+    field.maskShowTemplate = true
+}
 ```
 
-Input field<br>
-**0123-xxxx-xxxx-xxxx**
+### Other properties
+
+You can also set other properties like `text`, `placeholder`, etc.
+Example if you will set `text` property to value `1234`. A mask field will show `0123-EFGH-IJKL-MNOP` after loading view controller.
+
+## Initializing
+
+Same initialization as `UITextField` class.
 
 ## Properties
 
-### Mask
-
-`.mask` property / _mask_ key path / **Mask** attribute
-
-**Type**: String<br>
-**Access**: get set<br>
-
-Defines a type of a mask. A String contains blocks with symbols separated by any string out of blocks. Open and close each block a special symbol.
-
-Symbols in the block define certain type of data. The predetermined types:
-
-* **d** - Number, decimal number from 0 to 9
-* **D** - Any symbol, except decimal number
-* **W** - Not an alphabetic symbol
-* **a** - Alphabetic symbol, a-Z
-* **.** - Corresponds to any symbol (by default)
-
-Example:<br>
-**{dddd}-{DDDD}-{WaWa}-{aaaa}**
-
-### Template
-
-`.maskTemplate` property / _maskTemplate_ key path / **Mask Template** attribute
-
-**Type**: String<br>
-**Access**: get set<br>
-**Default value**: *
-
-Text template with the hidden symbols of a mask which is seen by the user. Can be in a look:
-
-* **1 character** <br>
-  In this case the symbol will be copied in compliance of length of each block of a mask.
-
-  Example:
-
-  **Mask**: {dddd}-{DDDD}-{WaWa}-{aaaa}<br>
-  **Template**: Z
-
-  Input field<br>
-  **ZZZZ-ZZZZ-ZZZZ-ZZZZ**
-
-* **Any characters** <br>
-  In this case the quantity of characters of a template has to be equal to quantity of characters of a mask without brackets.
-
-  Example:
-
-  **Mask**: {dddd}-{DDDD}-{WaWa}-{aaaa}<br>
-  **Template**: ABCD-EFGH-IJKL-MNOP
-
-  19 characters = 19 characters
-
-  Input field<br>
-  **ABCD-EFGH-IJKL-MNOP**
-
-### Visible mask tempalte
-
-`.maskShowTemplate` property / _maskShowTemplate_ key path / **Mask Show Template** attribute
-
-**Type**: Bool<br>
-**Access**: get set<br>
-**Default value**: false (Default value)
-
-Вefine will a user see a template if the field doesn't contain the entered character and has the status the "Clear" field. Can have 2 states:
-
-* **On (true)**<br>
-  The template is visible always. Replaces field placeholder.
-* **Off (false)**<br>
-  The template is displayed if the field contains the entered symbols. If the field has no the symbols entered by the user, standard placeholder of a field will be displayed.
-
-### Block brackets
-
-`.maskBlockBrackets` property
-
-**Type**: Array<br>
-**Access**: get set<br>
-**Default value**: `{` and `}`
-
-Two characters (open and close) that can be changed in the code.
-
-Example:
+### Displaying mask
 
 ```swift
-// Brackets
-field.maskBlockBrackets = ["[", "]"]
-
-// Mask
-field.mask = [dddd]-[DDDD]-[WaWa]-[aaaa]
+var mask: String
 ```
+
+The string value that contains blocks with symbols that determines certain format of input data. Each block must be wrapped by brackets. Default brackets value is `{ ... }`.<br>
+The predetermined formats:
+
+| Symbol | Input format    |
+| ------ | :------------- |
+| **d**  | Number, decimal number from 0 to 9. |
+| **D**  | Any symbol, except decimal number. |
+| **W**  | Not an alphabetic symbol. |
+| **a**  | Alphabetic symbol, a-Z. |
+| **.**  | Corresponds to any symbol (by default) |
+
+The initial value of this property is `nil`.
+<br>
+<br>
+```swift
+var maskTemplate: String
+```
+
+The text that represents the mask filed with replacing format symbol with template characters. Can be set:
+
+| Characters count                         | Description    |
+| :--------------------------------------- | :------------- |
+| **1**                                    | This character will be copied in each block and will replace mask format symbol. |
+| **Same length as mask without brackets** | Template character will replace mask format symbol in same position. |
+
+The initial value of this property is `*`.
+<br>
+<br>
+```swift
+var maskShowTemplate: Bool
+```
+
+A Boolean value indicating will be mask template shows after initialization.<br>
+The initial value of this property is `false`.
+
+### Configuring mask
+
+```swift
+var maskBlockBrackets: [Character]
+```
+
+An array with two characters (opening and closing bracket for the bock mask).<br>
+The initial values in this array is `{` and `}`.
 
 ### Mask object
 
-`.maskObject` property
-
-**Type**: Array<br>
-**Access**: get<br>
-**Default value**: Empty attay
-
-Contain all information about mask blocks.
-
-Example:
-
 ```swift
-// Get first block
-let block = self.field.maskObject[0]
-
-print("Block index in the mask \(block.index)") // Int
-print("The block is filled or isn't filled: \(block.status)") // true - filled, false - isn't filled
-print("The block position in a mask: \(block.range)") // Range<Int>
-print("Block mask: \(block.mask)") // String
-print("Block text: \(block.text)") // String
-print("Block template: \(block.template)") // String
-print("A characters inside the block: \(block.chars)") // Array<AKMaskFieldBlockChars>
-
-// Get first character
-let char = block.chars[0]
-
-print("A character index in a block: \(char.index)") // Int
-print("A character is filled or isn't filled : \(char.status)") // true - filled, false - isn't filled
-print("A Character text: \(char.text)") // String
-print("A character position in a mask: \(char.range)") // Range<Int>
+var maskObject: [AKMaskFieldBlock]! {get}
 ```
 
-### Mask status
+An array with all blocks mask. Each array value defined as `AKMaskFieldBlock` structure.<br>
+The initial value of this property is `nil`.
 
-`.maskStatus` property
-
-**Type**: Enum<br>
-**Access**: get<br>
-**Default value**: `.Clear` - Empty
-
-Define a condition of a field at the moment. The field has 3 states:
-
-* **.Clear** - Empty (pure), isn't present the filled character
-* **.Incomplete** - isn't filled at least one character is entered
-* **.Complete** - Filled all character are entered
-
-### User events
-
-`.maskEvent` property
-
-**Type**: Enum<br>
-**Access**: get<br>
-**Default value**: `.None`
-
-Define a user events. The user can make 4 events:
-
-* **.None** - Not events
-* **.Insert** - Enter
-* **.Delete** - Delete
-* **.Replace** - Select / Enter
-
-### Delegates
-
-`.maskDelegate` property
-
-Define an event which the user carries out with the field. Optional methods. Methods:
-
-* **maskFieldDidBeginEditing(maskField: AKMaskField)**<br>
-  Called when the cursor is placed in the field
-
-* **maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String, inRange range: NSRange, replacementString withString: String)**<br>
-  Called when the user make any event
-
-Example:
+#### Block `AKMaskFieldBlock` mask
 
 ```swift
-override func viewDidLoad() {
-  super.viewDidLoad()
+var index: Int
+```
 
-  field.maskDelegate = self
-}
+The block index in the mask.
+<br>
+<br>
+```swift
+var status: Bool
+```
 
-// Delegate methods
-func maskFieldDidBeginEditing(maskField: AKMaskField) {
-    print("Объект класса: \(maskField)")
-}
+A Boolean value that determines is the block filled in current moment.
+<br>
+<br>
+```swift
+var range: Range<Int>
+```
 
-func maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String, inRange range: NSRange, replacementString withString: String) {
-    print("Mask object: \(maskField)")
-    print("The text before an event: \(maskField.oldString)")
-    print("Range of text before event: \(maskField.range)")
-    print("The text after an event: \(maskField.withString)")
-    print("A field status after an event: \(maskField.maskStatus)")
-    print("An event: \(maskField.maskEvent)")
+The block position in the mask string.
+<br>
+<br>
+```swift
+var mask: String
+```
+
+The block string (without brackets).
+<br>
+<br>
+```swift
+var text: String
+```
+
+Entered characters in the block.
+<br>
+<br>
+```swift
+var template: String
+```
+
+The block template string.
+<br>
+<br>
+```swift
+var chars: [AKMaskFieldBlockChars]
+```
+
+An array with all characters mask in certain block. Each character value defined as `AKMaskFieldBlockChars` structure.
+
+#### Characters `AKMaskFieldBlockChars` block
+
+```swift
+var index: Int
+```
+
+The character index in the block.
+<br>
+<br>
+```swift
+var status: Bool
+```
+
+A Boolean value that determines is the character filled in current moment.
+<br>
+<br>
+```swift
+var text: String
+```
+
+Entered character.
+<br>
+<br>
+```swift
+var range: Range<Int>
+```
+
+Character position in the mask string.
+
+### Status of the mask and an user events
+
+```swift
+var maskStatus: AKMaskFieldStatus
+```
+
+Defines a status of the mask field at the current moment. The field has 3 states and defined as `AKMaskFieldStatus` enumeration type.
+
+```swift
+enum AKMaskFieldStatus {
+    case Clear
+    case Incomplete
+    case Complete
 }
 ```
+
+| Status         | Description    |
+| :------------- | :------------- |
+| **Clear**      | No one character was entered. |
+| **Incomplete** | At least one character is not entered. |
+| **Complete**   | All characters was entered. |
+
+The initial value of this property is `AKMaskFieldStatus.Clear`.
+<br>
+<br>
+```swift
+var maskEvent: AKMaskFieldEvet
+```
+
+Defines a user events. The user can make 4 events, all events defined as `AKMaskFieldEvet` enumeration type.
+
+```swift
+enum AKMaskFieldEvet {
+    case None
+    case Insert
+    case Delete
+    case Replace
+}
+```
+
+| Event       | Action    |
+| :-----------| :------------- |
+| **None**    | No one event was detected. |
+| **Insert**  | Entering new text. |
+| **Delete**  | Deleting text from field. |
+| **Replace** | Selecting and replacing or deleting text. |
+
+The initial value of this property is `AKMaskFieldEvet.None`.
+
+### Accessing the Delegate
+
+```swift
+weak var maskDelegate: AKMaskFieldDelegate?
+```
+
+A mask field delegate responds to editing-related messages from the text field. You can use the delegate to respond to the text entered by the user and to some special commands, such as when the return button is pressed.
+
+## Delegate methods
+
+```swift
+optional func maskFieldDidBeginEditing(maskField: AKMaskField)
+```
+
+| Parameter     | Description    |
+| :------------ | :------------- |
+| maskField     | The mask field for which an editing session began. |
+
+Tells the delegate that editing began for the specified mask field.
+<br>
+<br>
+```swift
+optional func maskField(maskField: AKMaskField,
+ shouldChangeCharacters oldString: String,
+                inRange range: NSRange,
+      replacementString withString: String)
+```
+
+| Parameter     | Description    |
+| :------------ | :------------- |
+| maskField     | The mask field containing the text. |
+| oldString     | The string that will replaced. |
+| range         | The range of characters to be replaced. |
+| withString    | The replacement string. |
+
+Asks the delegate if the specified text should be changed.
 
 ## Tips
 
@@ -264,7 +299,7 @@ func maskField(maskField: AKMaskField, shouldChangeCharacters oldString: String,
 
 ```swift
 var enteredText: String = ""
-for block in self.field.maskObject {
+for block in field.maskObject {
 
     for char in block.chars {
         if char.status { enteredText += String(char.text) }
